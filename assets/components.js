@@ -3,7 +3,11 @@ class TodoBox extends React.Component {
     super();
 
     this.state = {
-      todos: []
+      todos: [
+        {id: 1, title: "Faire ceci"},
+        {id: 2, title: "Faire cela"},
+        {id: 3, title: "Cette tâche est intéressante"}
+      ]
     };
   }
 
@@ -46,14 +50,17 @@ class TodoBox extends React.Component {
   }
 
   _addTodo(todoContent) {
-    let newTodo = {
-      id: this.state.todos.length + 1,
-      title: todoContent
-    }
 
-    this.setState({
-      todos: this.state.todos.concat([newTodo])
-    });
+    if(todoContent.length > 0) {
+      let newTodo = {
+        id: this.state.todos.length + 1,
+        title: todoContent
+      }
+
+      this.setState({
+        todos: this.state.todos.concat([newTodo])
+      });
+    }
   }
 }
 
