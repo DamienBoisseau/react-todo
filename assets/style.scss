@@ -1,0 +1,49 @@
+/* Settings */
+$background: #e8e8e8;
+$font-stack: 'Roboto', 'sans-serif';
+$font-monospace: 'Source Code Pro', 'courrier-new';
+$font-normal: '400';
+$font-bold: '500';
+
+
+/* General CSS */
+body {
+  font-family: $font-stack;
+  background-color: $background;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: $font-bold;
+}
+
+
+/* Todo Container */
+.todo-container {
+  width: 500px;
+  margin: 0 auto;
+
+  input[type="text"] {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: 0;
+  }
+
+  ul.todo-list {
+    font-family: $font-monospace;
+    padding: 0;
+    list-style-type: none;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+
+    li {
+      padding: 5px 10px;
+    }
+  }
+}
