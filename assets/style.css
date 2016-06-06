@@ -27,6 +27,14 @@ h3 {
     background-color: #ffffff;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); }
     .todo-container ul.todo-list li {
+      position: relative;
       padding: 5px 10px; }
+      .todo-container ul.todo-list li .todo-actions {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 5px 10px; }
+      .todo-container ul.todo-list li:hover .todo-actions {
+        visibility: visible; }
 
 /*# sourceMappingURL=style.css.map */

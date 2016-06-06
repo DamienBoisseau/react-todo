@@ -42,9 +42,9 @@ class TodoBox extends React.Component {
   }
 
   _getTodo() {
-    return this.state.todos.map(function(todo) {
+    return this.state.todos.map((todo) => {
       return (
-        <TodoElement title={todo.title} key={todo.id} />
+        <TodoElement id={todo.id} title={todo.title} key={todo.id} onDelete={this._removeTodo.bind(this)} />
       );
     });
   }
@@ -62,6 +62,14 @@ class TodoBox extends React.Component {
       });
     }
   }
+
+  _removeTodo(todoID) {
+    const todos = this.state.todos.filter(
+      todo => todo.id !== todoID
+    );
+
+    this.setState({ todos: todos });
+  }
 }
 
 class TodoElement extends React.Component {
@@ -73,8 +81,19 @@ class TodoElement extends React.Component {
     return(
       <li className="todo-element">
         {this.props.title}
+        
+        <div className="todo-actions">
+          <a href="#" onClick={this._handleDelete.bind(this)}>
+            <span className="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+          </a>
+        </div>
       </li>
     );
+  }
+
+  _handleDelete(event) {
+    event.preventDefault();
+    this.props.onDelete(this.props.id);
   }
 }
 
