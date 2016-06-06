@@ -22,23 +22,36 @@ h3 {
     border-left: 0; }
   .todo-container ul.todo-list {
     background-color: #ffffff;
-    font-family: "Source Code Pro", "courrier-new";
     padding: 0;
     list-style-type: none;
-    background-color: #ffffff;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); }
     .todo-container ul.todo-list li {
       position: relative;
       padding: 5px 10px; }
+      .todo-container ul.todo-list li .todo-title {
+        font-family: "Source Code Pro", "courrier-new"; }
       .todo-container ul.todo-list li .todo-actions {
         visibility: hidden;
         position: absolute;
         right: 0;
-        top: 0;
-        padding: 5px 10px; }
+        top: 0; }
       .todo-container ul.todo-list li:hover {
         background-color: #f2f2f2; }
         .todo-container ul.todo-list li:hover .todo-actions {
           visibility: visible; }
+    .todo-container ul.todo-list .dropdown-toggle {
+      padding: 5px 8px;
+      cursor: pointer; }
+      .todo-container ul.todo-list .dropdown-toggle:hover {
+        background: #e6e6e6; }
+    .todo-container ul.todo-list .dropdown-menu {
+      padding: 0;
+      margin: 0;
+      border-radius: 0;
+      border: 0; }
+      .todo-container ul.todo-list .dropdown-menu li > a {
+        padding: 0; }
+        .todo-container ul.todo-list .dropdown-menu li > a:hover {
+          background-color: inherit; }
 
 /*# sourceMappingURL=style.css.map */

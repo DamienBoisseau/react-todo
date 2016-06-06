@@ -82,12 +82,20 @@ class TodoElement extends React.Component {
   render() {
     return(
       <li className="todo-element">
-        {this.props.title}
+        <span className="todo-title">{this.props.title}</span>
         
         <div className="todo-actions">
-          <a href="#" onClick={this._handleDelete.bind(this)}>
-            <span className="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
-          </a>
+          <div className="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span className="glyphicon glyphicon-option-vertical" ></span>
+            <span className="sr-only">Options</span>
+          </div>
+          <ul className="dropdown-menu">
+            <li>
+              <a href="#" onClick={this._handleDelete.bind(this)}>
+                <span className="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> Delete
+              </a>
+            </li>
+          </ul>
         </div>
       </li>
     );
