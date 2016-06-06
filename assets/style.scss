@@ -1,5 +1,6 @@
 /* Settings */
 $background: #e8e8e8;
+$todo-box-color: #ffffff;
 $font-stack: 'Roboto', 'sans-serif';
 $font-monospace: 'Source Code Pro', 'courrier-new';
 $font-normal: '400';
@@ -36,6 +37,7 @@ h3 {
   }
 
   ul.todo-list {
+    background-color: $todo-box-color;
     font-family: $font-monospace;
     padding: 0;
     list-style-type: none;
@@ -46,17 +48,20 @@ h3 {
       position: relative;
       padding: 5px 10px;
 
-
       .todo-actions {
-        // visibility: hidden;
+        visibility: hidden;
         position: absolute;
         right: 0;
         top: 0;
         padding: 5px 10px;
       }
 
-      &:hover .todo-actions {
-        visibility: visible;
+      &:hover {
+        background-color: darken($todo-box-color, 5%);
+
+        .todo-actions {
+          visibility: visible;
+        }
       }
     }
   }
