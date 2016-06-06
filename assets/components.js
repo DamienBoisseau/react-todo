@@ -4,9 +4,10 @@ class TodoBox extends React.Component {
 
     this.state = {
       todos: [
-        {id: 1, title: "Faire ceci"},
-        {id: 2, title: "Faire cela"},
-        {id: 3, title: "Cette tâche est intéressante"}
+        {id: 1, title: "Faire ceci", isDone: false},
+        {id: 3, title: "Cette tâche est intéressante", isDone: false},
+        {id: 2, title: "Faire cela", isDone: false},
+        {id: 4, title: "Tâche terminée", isDone: true}
       ]
     };
   }
@@ -42,9 +43,19 @@ class TodoBox extends React.Component {
   }
 
   _getTodo() {
+    this.state.todos.sort(function (a, b) {
+      if(!a.isDone && b.isDone) {return -1;}
+      if(a.isDone && !b.isDone) {return 1;}
+      else {
+        if (a.id > b.id) {return 1;}
+        if (a.id < b.id) {return -1;}
+        return 0;
+      }
+    });
+
     return this.state.todos.map((todo) => {
       return (
-        <TodoElement id={todo.id} title={todo.title} key={todo.id} onDelete={this._removeTodo.bind(this)} />
+        <TodoElement id={todo.id} title={todo.title} isDone={todo.isDone} key={todo.id} onDelete={this._removeTodo.bind(this)} />
       );
     });
   }
@@ -54,7 +65,8 @@ class TodoBox extends React.Component {
     if(todoContent.length > 0) {
       let newTodo = {
         id: this.state.todos.length + 1,
-        title: todoContent
+        title: todoContent,
+        isDone: false
       }
 
       this.setState({
@@ -77,11 +89,14 @@ class TodoBox extends React.Component {
 class TodoElement extends React.Component {
   constructor() {
     super();
+
   }
 
   render() {
+    let todoClasses = (this.props.isDone) ? 'todo-element is-done' : 'todo-element';
+
     return(
-      <li className="todo-element">
+      <li className={todoClasses}>
         <span className="todo-title">{this.props.title}</span>
         
         <div className="todo-actions">

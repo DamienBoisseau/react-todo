@@ -5,12 +5,14 @@ $font-stack: 'Roboto', 'sans-serif';
 $font-monospace: 'Source Code Pro', 'courrier-new';
 $font-normal: '400';
 $font-bold: '500';
+$text-color: #292929;
 
 
 /* General CSS */
 body {
   font-family: $font-stack;
   background-color: $background;
+  color: $text-color;
 }
 
 h1,
@@ -63,6 +65,11 @@ h3 {
         .todo-actions {
           visibility: visible;
         }
+      }
+
+      &.is-done .todo-title {
+        text-decoration: line-through;
+        color: lighten($text-color, 50%);
       }
     }
 
