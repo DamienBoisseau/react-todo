@@ -60,6 +60,8 @@ class TodoBox extends React.Component {
       this.setState({
         todos: this.state.todos.concat([newTodo])
       });
+
+      document.getElementById('todo-input').focus();
     }
   }
 
@@ -106,7 +108,7 @@ class TodoForm extends React.Component {
     return (
       <form className="todo-form form-inline" onSubmit={this._handleSubmit.bind(this)}>
         <div className="form-group">
-          <input type="text" className="form-control" placeholder="Add a task..." ref={(input) => this._todo = input} />
+          <input type="text" className="form-control" placeholder="Add a task..." id="todo-input" ref={(input) => this._todo = input} />
         </div>
         <button type="submit" className="btn btn-default">Add</button>
       </form>
