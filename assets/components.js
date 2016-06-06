@@ -8,7 +8,8 @@ class TodoBox extends React.Component {
         {id: 3, title: "Cette tâche est intéressante", isDone: false},
         {id: 2, title: "Faire cela", isDone: false},
         {id: 4, title: "Tâche terminée", isDone: true}
-      ]
+      ],
+      nextId: 5
     };
   }
 
@@ -64,13 +65,14 @@ class TodoBox extends React.Component {
 
     if(todoContent.length > 0) {
       let newTodo = {
-        id: this.state.todos.length + 1,
+        id: this.state.nextId,
         title: todoContent,
         isDone: false
       }
 
       this.setState({
-        todos: this.state.todos.concat([newTodo])
+        todos: this.state.todos.concat([newTodo]),
+        nextId: this.state.nextId + 1
       });
 
       document.getElementById('todo-input').focus();
