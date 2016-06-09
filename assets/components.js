@@ -91,16 +91,26 @@ class TodoBox extends React.Component {
 class TodoElement extends React.Component {
   constructor() {
     super();
+  }
 
+  componentWillMount() {
+    this.setState({
+      isDone: this.props.isDone
+    });
   }
 
   render() {
-    let todoClasses = (this.props.isDone) ? 'todo-element is-done' : 'todo-element';
+
+    let todoClasses = (this.state.isDone) ? 'todo-element is-done' : 'todo-element';
 
     return(
       <li className={todoClasses}>
-        <span className="todo-title">{this.props.title}</span>
-        
+        <div className="checkbox">
+          <label>
+            <input type="checkbox" defaultChecked={this.state.isDone} onChange={this._handleDone.bind(this)} />
+            <span className="todo-title">{this.props.title}</span>
+          </label>
+        </div>
         <div className="todo-actions">
           <div className="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span className="glyphicon glyphicon-option-vertical" ></span>
@@ -116,6 +126,12 @@ class TodoElement extends React.Component {
         </div>
       </li>
     );
+  }
+
+  _handleDone(event) {
+    this.setState({
+      isDone: !this.state.isDone
+    });
   }
 
   _handleDelete(event) {

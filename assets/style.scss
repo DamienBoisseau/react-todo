@@ -44,9 +44,19 @@ h3 {
     list-style-type: none;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 
-    li {
+    li.todo-element {
       position: relative;
-      padding: 5px 10px;
+      padding: 0 10px;
+
+      .checkbox {
+        margin: 0;
+
+        label {
+          padding-top: 5px;
+          padding-bottom: 5px;
+          display: block;
+        }
+      }
 
       .todo-title {
         font-family: $font-monospace;
@@ -89,10 +99,10 @@ h3 {
       border: 0;
 
       li > a {
-        padding: 0;
+        padding: 5px 10px;
 
         &:hover {
-          background-color: inherit;
+          background-color: darken($todo-box-color, 5%);
         }
       }
     }

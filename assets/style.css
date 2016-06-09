@@ -26,21 +26,27 @@ h3 {
     padding: 0;
     list-style-type: none;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); }
-    .todo-container ul.todo-list li {
+    .todo-container ul.todo-list li.todo-element {
       position: relative;
-      padding: 5px 10px; }
-      .todo-container ul.todo-list li .todo-title {
+      padding: 0 10px; }
+      .todo-container ul.todo-list li.todo-element .checkbox {
+        margin: 0; }
+        .todo-container ul.todo-list li.todo-element .checkbox label {
+          padding-top: 5px;
+          padding-bottom: 5px;
+          display: block; }
+      .todo-container ul.todo-list li.todo-element .todo-title {
         font-family: "Source Code Pro", "courrier-new"; }
-      .todo-container ul.todo-list li .todo-actions {
+      .todo-container ul.todo-list li.todo-element .todo-actions {
         visibility: hidden;
         position: absolute;
         right: 0;
         top: 0; }
-      .todo-container ul.todo-list li:hover {
+      .todo-container ul.todo-list li.todo-element:hover {
         background-color: #f2f2f2; }
-        .todo-container ul.todo-list li:hover .todo-actions {
+        .todo-container ul.todo-list li.todo-element:hover .todo-actions {
           visibility: visible; }
-      .todo-container ul.todo-list li.is-done .todo-title {
+      .todo-container ul.todo-list li.todo-element.is-done .todo-title {
         text-decoration: line-through;
         color: darkgray; }
     .todo-container ul.todo-list .dropdown-toggle {
@@ -54,8 +60,8 @@ h3 {
       border-radius: 0;
       border: 0; }
       .todo-container ul.todo-list .dropdown-menu li > a {
-        padding: 0; }
+        padding: 5px 10px; }
         .todo-container ul.todo-list .dropdown-menu li > a:hover {
-          background-color: inherit; }
+          background-color: #f2f2f2; }
 
 /*# sourceMappingURL=style.css.map */
